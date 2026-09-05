@@ -108,6 +108,8 @@ with tab2:
 # ==========================================
 # PESTAÑA 3: LABORATORIO VIRTUAL (MAPA)
 # ==========================================
+
+
 with tab3:
     st.header("Visualización de la Topografía del Potencial")
     st.write("Comprueba tus cálculos analíticos interactuando con el mapa del potencial efectivo del sistema síncrono.")
@@ -137,12 +139,12 @@ with tab3:
                 colorbar=dict(title="U_eff (J/kg)")
             ))
             
-            # Agregar marcadores físicos de los cuerpos
-            fig.add_trace(go.Scatter(x=, y=, mode='markers+text', text=["Tierra"], textposition="top center", marker=dict(color='blue', size=14), name="Tierra"))
-            fig.add_trace(go.Scatter(x=[R], y=, mode='markers+text', text=["Luna"], textposition="top center", marker=dict(color='orange', size=9), name="Luna"))
+            # --- CORREGIDO AQUÍ: Se añadieron las listas de coordenadas numéricas [0] ---
+            fig.add_trace(go.Scatter(x=[0], y=[0], mode='markers+text', text=["Tierra"], textposition="top center", marker=dict(color='blue', size=14), name="Tierra"))
+            fig.add_trace(go.Scatter(x=[R], y=[0], mode='markers+text', text=["Luna"], textposition="top center", marker=dict(color='orange', size=9), name="Luna"))
             
             # Ubicación exacta de las soluciones del gradiente
-            fig.add_trace(go.Scatter(x=[3.26e8, 4.49e8, -3.81e8], y=, mode='markers', marker=dict(color='red', symbol='x', size=11), name="Puntos Colineales (L1, L2, L3)"))
+            fig.add_trace(go.Scatter(x=[3.26e8, 4.49e8, -3.81e8], y=[0, 0, 0], mode='markers', marker=dict(color='red', symbol='x', size=11), name="Puntos Colineales (L1, L2, L3)"))
             fig.add_trace(go.Scatter(x=[R*0.5, R*0.5], y=[R*np.sin(np.pi/3), -R*np.sin(np.pi/3)], mode='markers', marker=dict(color='cyan', symbol='diamond', size=11), name="Puntos Triangulares (L4, L5)"))
 
             fig.update_layout(
@@ -151,7 +153,7 @@ with tab3:
                 legend=dict(yanchor="top", y=0.98, xanchor="left", x=0.02)
             )
             st.plotly_chart(fig, use_container_width=True)
-            
+
     st.subheader("💬 Conclusiones para el Reporte de Laboratorio")
     st.markdown("""
     * **Puntos Colineales:** Corresponden matemáticamente a puntos de silla de montar (estabilidad condicional).
