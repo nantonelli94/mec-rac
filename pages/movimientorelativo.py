@@ -72,13 +72,16 @@ with tab2:
     st.write("Utiliza las pistas teóricas y las constantes del problema para resolver las preguntas en tu hoja e ingresar las respuestas:")
     
     # Datos expuestos
-    st.markdown(f"""
+    # ASÍ DEBE QUEDAR TU BLOQUE DE DATOS EN EL ARCHIVO:
+    st.markdown(r"""
     **Datos del Sistema Tierra-Luna:**
     * $M_T = 5.97 \times 10^{24}\text{ kg}$
     * $M_L = 7.35 \times 10^{22}\text{ kg}$
     * $R = 3.84 \times 10^{8}\text{ m}$
-    * Velocidad angular calculada ($\omega$): **{omega:.4e} rad/s**
     """)
+    
+    st.write(f"Velocidad angular calculada ($\omega$): **{omega:.4e} rad/s**")
+
     
     st.markdown("**Desafío 1: Puntos Triangulares ($L_4$ y $L_5$)**")
     st.write("Sabiendo que $L_4$ y $L_5$ forman un triángulo equilátero perfecto con la Tierra y la Luna, ¿cuál es la distancia exacta (en metros) desde el centro de la Tierra hasta el punto $L_4$?")
